@@ -1,0 +1,20 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Class="Trackify.Controls.GiftCard">
+  <Border Classes="card" Width="176" Padding="0" Margin="0,0,14,14">
+    <StackPanel>
+      <Grid Height="118" Background="#1A1A1E" CornerRadius="14,14,0,0">
+        <TextBlock Text="GIFT" FontFamily="{DynamicResource PixelFont}" FontSize="26" Foreground="#33FFFFFF" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <Border Background="#F59E0B" CornerRadius="8" Padding="7,2" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="8" IsVisible="{Binding Unique}">
+          <TextBlock Text="UNIQUE" FontSize="10" FontWeight="Bold" Foreground="#111114" />
+        </Border>
+      </Grid>
+      <StackPanel Margin="12,10,12,12" Spacing="6">
+        <TextBlock Text="{Binding Name}" FontWeight="SemiBold" />
+        <Grid ColumnDefinitions="Auto,*,Auto">
+          <Image Source="avares://Trackify/Assets/Icons/token.png" Width="18" Height="18" />
+          <TextBlock Grid.Column="2" Text="{Binding Price}" FontWeight="Bold" VerticalAlignment="Center" />
+        </Grid>
+        <Button Classes="accent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Content="Buy" Click="OnBuy" />
+      </StackPanel>
+    </StackPanel>
+  </Border>
+</UserControl>

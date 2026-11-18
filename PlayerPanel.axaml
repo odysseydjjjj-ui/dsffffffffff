@@ -1,0 +1,33 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Class="Trackify.Controls.PlayerPanel">
+  <Border Background="#B30F0F11" BorderBrush="#222228" BorderThickness="1,0,0,0">
+    <Grid RowDefinitions="Auto,*,Auto" Margin="18,16">
+      <StackPanel Spacing="10">
+        <Border Name="Cover" Height="210" CornerRadius="14" Background="#8B5CF6">
+          <TextBlock Name="CoverGlyph" Text="T" FontFamily="{DynamicResource PixelFont}" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#B3FFFFFF" />
+        </Border>
+        <TextBlock Name="TitleText" Text="Pick a track" FontSize="17" FontWeight="SemiBold" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="ArtistText" Classes="muted" Text="TrackCloud" />
+      </StackPanel>
+      <StackPanel Grid.Row="1" VerticalAlignment="Center" Spacing="8">
+        <TextBlock Name="LyricLine" TextAlignment="Center" FontSize="16" FontWeight="SemiBold" TextWrapping="Wrap" />
+        <TextBlock Name="LyricWords" TextAlignment="Center" FontSize="13" Classes="muted" TextWrapping="Wrap" />
+        <TextBlock Name="LyricNext" TextAlignment="Center" FontSize="11" Opacity="0.6" Classes="muted" />
+      </StackPanel>
+      <StackPanel Grid.Row="2" Spacing="8">
+        <Slider Name="Seek" Minimum="0" Maximum="1000" />
+        <Grid ColumnDefinitions="Auto,*,Auto">
+          <TextBlock Name="Elapsed" Classes="muted" Text="0:00" />
+          <TextBlock Grid.Column="2" Name="Total" Classes="muted" Text="0:00" />
+        </Grid>
+        <Grid ColumnDefinitions="Auto,*,Auto,Auto" ColumnSpacing="8">
+          <Button Classes="icon" Click="OnPrev"><Path Data="M2,5 L8,1 L8,9 Z" Fill="White" /></Button>
+          <Button Name="PlayBtn" Grid.Column="2" Classes="accent" Width="46" Height="46" CornerRadius="23" Click="OnPlay">
+            <TextBlock Name="PlayGlyph" Text="▶" FontSize="18" />
+          </Button>
+          <Button Grid.Column="3" Classes="icon" Click="OnNext"><Path Data="M2,1 L8,5 L2,9 Z" Fill="White" /></Button>
+        </Grid>
+        <Slider Name="Volume" Minimum="0" Maximum="100" Value="80" />
+      </StackPanel>
+    </Grid>
+  </Border>
+</UserControl>
