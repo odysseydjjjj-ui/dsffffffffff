@@ -1,0 +1,20 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:c="using:Trackify.Controls" x:Class="Trackify.Views.HomePage" Classes="page">
+  <ScrollViewer Padding="28,22,18,20">
+    <StackPanel Spacing="26">
+      <StackPanel Spacing="12">
+        <TextBlock Classes="h1" Text="Recently Listened" />
+        <ItemsControl Name="Recent">
+          <ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+          <ItemsControl.ItemTemplate><DataTemplate><c:TrackCard /></DataTemplate></ItemsControl.ItemTemplate>
+        </ItemsControl>
+      </StackPanel>
+      <StackPanel Spacing="12">
+        <TextBlock Classes="h1" Text="Popular Music" />
+        <ItemsControl Name="Popular">
+          <ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+          <ItemsControl.ItemTemplate><DataTemplate><c:TrackCard /></DataTemplate></ItemsControl.ItemTemplate>
+        </ItemsControl>
+      </StackPanel>
+    </StackPanel>
+  </ScrollViewer>
+</UserControl>

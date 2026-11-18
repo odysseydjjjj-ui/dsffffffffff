@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>Assets\trackify.ico</ApplicationIcon>
+    <AssemblyName>Trackify</AssemblyName>
+    <RootNamespace>Trackify</RootNamespace>
+    <Version>0.3.0</Version>
+    <TieredPGO>true</TieredPGO>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia"               Version="11.3.0" />
+    <PackageReference Include="Avalonia.Desktop"       Version="11.3.0" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.0" />
+    <PackageReference Include="Avalonia.Fonts.Inter"   Version="11.3.0" />
+
+    <PackageReference Include="LibVLCSharp"             Version="3.9.0" />
+    <PackageReference Include="VideoLAN.LibVLC.Windows" Version="3.0.21" />
+
+    <PackageReference Include="DiscordRichPresence" Version="1.2.1.24" />
+    <PackageReference Include="Supabase"            Version="1.1.1" />
+    <PackageReference Include="TagLibSharp"         Version="2.3.0" />
+
+    <!-- replaces Squirrel.Windows (abandoned, .NET Framework only) -->
+    <PackageReference Include="Velopack" Version="0.*" />
+    <!-- token storage (DPAPI) -->
+    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="8.0.0" />
+    <!-- SkiaSharp comes transitively with Avalonia 11; an explicit 2.88.8 would be a downgrade (NU1605),
+         and SkiaSharp.Views.Avalonia is for Avalonia 0.10 only, so both were removed. -->
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+  </ItemGroup>
+</Project>

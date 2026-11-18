@@ -1,0 +1,29 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Trackify.Views.LoginWindow"
+        Title="Trackify" Width="440" Height="620" CanResize="False"
+        Background="#0E0E10" Icon="/Assets/trackify.ico"
+        WindowStartupLocation="CenterScreen">
+  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="320" Spacing="12">
+    <Image Source="avares://Trackify/Assets/trackify.png" Width="96" Height="96" />
+    <TextBlock Text="TRACKIFY" Classes="h1" HorizontalAlignment="Center" FontSize="36" />
+    <TextBlock Text="Music, chats and gifts in one place" Classes="muted" HorizontalAlignment="Center" />
+    <TextBox Name="Email" Watermark="Email" Height="42" VerticalContentAlignment="Center" Margin="0,10,0,0" />
+    <TextBox Name="Pass" Watermark="Password" PasswordChar="•" Height="42" VerticalContentAlignment="Center" />
+    <TextBlock Name="ErrorText" Foreground="#F87171" TextWrapping="Wrap" IsVisible="False" />
+    <Button Classes="accent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Padding="14,11" Content="Sign in" Click="OnSignIn" />
+    <Button Classes="pill" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Content="Create account" Click="OnSignUp" />
+    <Button Background="White" Foreground="#111114" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Padding="14,11" Click="OnGoogle">
+      <StackPanel Orientation="Horizontal" Spacing="10">
+        <Image Source="avares://Trackify/Assets/Icons/google_logo.png" Width="20" Height="20" />
+        <TextBlock Text="Continue with Google" FontWeight="SemiBold" Foreground="#111114" />
+      </StackPanel>
+    </Button>
+    <Border Classes="flat" Padding="14">
+      <StackPanel Spacing="6">
+        <TextBlock Text="One account per person" FontWeight="SemiBold" FontSize="13" />
+        <TextBlock Classes="muted" TextWrapping="Wrap" Text="Trackify does not support alt accounts. Accounts that break the rules are banned server-side." />
+      </StackPanel>
+    </Border>
+  </StackPanel>
+</Window>

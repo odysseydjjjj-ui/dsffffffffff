@@ -1,0 +1,48 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:c="using:Trackify.Controls" x:Class="Trackify.Views.SettingsPage" Classes="page">
+  <ScrollViewer Padding="28,22,18,20">
+    <StackPanel Spacing="16">
+      <TextBlock Classes="h1" Text="Settings" />
+      <Border Classes="flat" Padding="18">
+        <StackPanel Spacing="6">
+          <TextBlock Classes="h2" Text="Appearance" />
+          <ToggleSwitch Name="TgBg" IsChecked="True" OnContent="Background follows the cover colors" OffContent="Background follows the cover colors" Content="" />
+        </StackPanel>
+      </Border>
+      <Border Classes="flat" Padding="18">
+        <StackPanel Spacing="6">
+          <TextBlock Classes="h2" Text="Playback" />
+          <ToggleSwitch Name="TgOffline" IsChecked="True" OnContent="Save played tracks for offline listening" OffContent="Save played tracks for offline listening" />
+          <TextBlock Classes="muted" TextWrapping="Wrap" Text="Offline tracks live in %AppData%/Trackify/cache (up to 2 GB, oldest are removed first)." />
+        </StackPanel>
+      </Border>
+      <Border Classes="flat" Padding="18">
+        <StackPanel Spacing="6">
+          <TextBlock Classes="h2" Text="App" />
+          <ToggleSwitch Name="TgTray" IsChecked="True" OnContent="Keep running in tray when closed" OffContent="Keep running in tray when closed" />
+          <ToggleSwitch Name="TgDiscord" IsChecked="True" OnContent="Show what I'm listening to on Discord" OffContent="Show what I'm listening to on Discord" />
+          <ToggleSwitch Name="TgUpdate" IsChecked="True" OnContent="Update automatically" OffContent="Update automatically" />
+          <StackPanel Orientation="Horizontal" Spacing="12" Margin="0,6,0,0">
+            <Button Classes="pill" Click="OnCheckUpdates">
+              <StackPanel Orientation="Horizontal" Spacing="8">
+                <Image Source="avares://Trackify/Assets/Icons/auto_update.png" Width="16" Height="16" />
+                <TextBlock Text="Check for updates" />
+              </StackPanel>
+            </Button>
+            <TextBlock Name="UpdateText" Classes="muted" VerticalAlignment="Center" Text="" />
+          </StackPanel>
+        </StackPanel>
+      </Border>
+      <Border Classes="flat" Padding="18">
+        <StackPanel Spacing="10">
+          <TextBlock Classes="h2" Text="Account" />
+          <TextBlock Classes="muted" Text="Display name" />
+          <TextBox Name="NameBox" Text="Ryan" MaxWidth="320" HorizontalAlignment="Left" Width="320" />
+          <TextBlock Classes="muted" Text="Username and ID" />
+          <TextBlock Name="UserText" Text="@ryan · ID 1001" />
+          <TextBlock Classes="muted" TextWrapping="Wrap" Text="Trackify allows one account per person. Alt accounts are not supported." />
+          <Button Classes="pill" Content="Sign out" HorizontalAlignment="Left" Click="OnSignOut" />
+        </StackPanel>
+      </Border>
+    </StackPanel>
+  </ScrollViewer>
+</UserControl>

@@ -1,0 +1,74 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:c="using:Trackify.Controls" x:Class="Trackify.Views.ProfilePage" Classes="page">
+  <ScrollViewer>
+    <StackPanel>
+      <Grid Height="250">
+        <Border Name="Banner" Height="170" VerticalAlignment="Top" Background="#7C3AED">
+          <Border.Transitions>
+            <Transitions>
+              <BrushTransition Property="Background" Duration="0:0:0.5" />
+            </Transitions>
+          </Border.Transitions>
+          <StackPanel Name="BannerEmoji" Orientation="Horizontal" Spacing="8" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="16">
+            <TextBlock Text="🔥" FontSize="24" />
+            <TextBlock Text="🎧" FontSize="24" />
+            <TextBlock Text="✨" FontSize="24" />
+          </StackPanel>
+        </Border>
+        <Grid Width="124" Height="124" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="28,108,0,0">
+                    <Ellipse Fill="#2A2A32" Margin="14" />
+          <c:SpriteIcon Name="RingSprite" Source="ultra" Width="124" Height="124" />
+          <TextBlock Text="R" FontFamily="{DynamicResource PixelFont}" FontSize="44" HorizontalAlignment="Center" VerticalAlignment="Center" />
+          <Image Source="avares://Trackify/Assets/Icons/online.png" Width="18" Height="18" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" />
+        </Grid>
+        <StackPanel Margin="166,184,0,0" VerticalAlignment="Top" Spacing="2">
+          <StackPanel Orientation="Horizontal" Spacing="8">
+            <TextBlock Text="Ryan" Classes="h2" />
+            <c:SpriteIcon Source="ultra" Width="22" Height="22" />
+            <Image Source="avares://Trackify/Assets/Icons/owner.png" Width="20" Height="20" ToolTip.Tip="Owner" />
+            <Image Source="avares://Trackify/Assets/Icons/verified.png" Width="20" Height="20" ToolTip.Tip="Verified" />
+          </StackPanel>
+          <TextBlock Classes="muted" Text="@ryan · ID 1001 · Online" />
+        </StackPanel>
+      </Grid>
+      <StackPanel Margin="28,6,18,24" Spacing="22">
+        <StackPanel Orientation="Horizontal" Spacing="10">
+          <Button Classes="pill" Click="OnCrop">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+              <Image Source="avares://Trackify/Assets/Icons/crop.png" Width="16" Height="16" />
+              <TextBlock Text="Crop avatar" />
+            </StackPanel>
+          </Button>
+          <Button Classes="pill">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+              <Image Source="avares://Trackify/Assets/Icons/arrow_up.png" Width="16" Height="16" />
+              <TextBlock Text="Upload avatar" />
+            </StackPanel>
+          </Button>
+        </StackPanel>
+        <StackPanel Spacing="10">
+          <TextBlock Classes="h2" Text="Banner color" />
+          <StackPanel Name="ColorRow" Orientation="Horizontal" Spacing="10" />
+        </StackPanel>
+        <StackPanel Spacing="10">
+          <TextBlock Classes="h2" Text="Avatar ring" />
+          <StackPanel Name="RingRow" Orientation="Horizontal" Spacing="10" />
+          <StackPanel Orientation="Horizontal" Spacing="8">
+            <Image Source="avares://Trackify/Assets/Icons/locked.png" Width="14" Height="14" Opacity="0.7" />
+            <TextBlock Classes="muted" Text="Custom ring editor and banner emoji are Ultra features" />
+          </StackPanel>
+        </StackPanel>
+        <StackPanel Spacing="10">
+          <TextBlock Classes="h2" Text="Pinned gifts" />
+          <ItemsControl Name="Pinned">
+            <ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate><DataTemplate><c:GiftCard /></DataTemplate></ItemsControl.ItemTemplate>
+          </ItemsControl>
+        </StackPanel>
+        <StackPanel Spacing="6">
+          <TextBlock Classes="h2" Text="Bio" />
+          <TextBlock Classes="muted" Text="Not yet" />
+        </StackPanel>
+      </StackPanel>
+    </StackPanel>
+  </ScrollViewer>
+</UserControl>

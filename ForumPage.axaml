@@ -1,0 +1,40 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:c="using:Trackify.Controls" x:Class="Trackify.Views.ForumPage" Classes="page">
+  <ScrollViewer Padding="28,22,18,20">
+    <StackPanel Spacing="16">
+      <TextBlock Classes="h1" Text="Forum" />
+      <Border Classes="flat" Padding="12">
+        <StackPanel Orientation="Horizontal" Spacing="10">
+          <Image Source="avares://Trackify/Assets/Icons/locked.png" Width="18" Height="18" Opacity="0.8" />
+          <TextBlock Classes="muted" VerticalAlignment="Center" Text="Links and slurs are blocked. Breaking the rules means a 5-10 minute mute." />
+        </StackPanel>
+      </Border>
+      <Border Classes="flat" Padding="12">
+        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="10">
+          <TextBox Name="Draft" Watermark="Start a new topic" />
+          <Button Grid.Column="1" Classes="accent" Content="Post" Click="OnPost" />
+        </Grid>
+      </Border>
+      <TextBlock Name="Warning" Foreground="#F87171" IsVisible="False" Text="Blocked: links and slurs are not allowed. You are muted for 5 minutes." />
+      <ItemsControl Name="Posts">
+        <ItemsControl.ItemTemplate>
+          <DataTemplate>
+            <Border Classes="card" Padding="16,12" Margin="0,0,0,10">
+              <Grid ColumnDefinitions="*,Auto">
+                <StackPanel Spacing="3">
+                  <TextBlock Text="{Binding Title}" FontSize="16" FontWeight="SemiBold" />
+                  <TextBlock Classes="muted" Text="{Binding Meta}" />
+                </StackPanel>
+                <Border Grid.Column="1" Background="#33FFFFFF" CornerRadius="8" Padding="8,2" IsVisible="{Binding Pinned}" VerticalAlignment="Center">
+                  <StackPanel Orientation="Horizontal" Spacing="4">
+                    <Image Source="avares://Trackify/Assets/Icons/pin.png" Width="12" Height="12" />
+                    <TextBlock Text="Pinned" FontSize="11" />
+                  </StackPanel>
+                </Border>
+              </Grid>
+            </Border>
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
+    </StackPanel>
+  </ScrollViewer>
+</UserControl>

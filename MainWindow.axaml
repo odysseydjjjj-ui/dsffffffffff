@@ -1,0 +1,66 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:c="using:Trackify.Controls"
+        x:Class="Trackify.Views.MainWindow"
+        Title="Trackify" Width="1180" Height="720" MinWidth="980" MinHeight="640"
+        Background="#0E0E10" Icon="/Assets/trackify.ico"
+        WindowStartupLocation="CenterScreen"
+        ExtendClientAreaToDecorationsHint="True"
+        ExtendClientAreaChromeHints="NoChrome"
+        ExtendClientAreaTitleBarHeightHint="-1">
+  <Grid>
+    <Border Name="BgOverlay" Background="#8B5CF6" Opacity="0.3">
+      <Border.OpacityMask>
+        <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+          <GradientStop Color="White" Offset="0" />
+          <GradientStop Color="Transparent" Offset="0.85" />
+        </LinearGradientBrush>
+      </Border.OpacityMask>
+      <Border.Transitions>
+        <Transitions>
+          <BrushTransition Property="Background" Duration="0:0:0.9" />
+          <DoubleTransition Property="Opacity" Duration="0:0:0.5" />
+        </Transitions>
+      </Border.Transitions>
+    </Border>
+    <Grid RowDefinitions="38,*">
+      <Grid Name="TitleBar" ColumnDefinitions="Auto,*,Auto" Background="Transparent">
+        <StackPanel Orientation="Horizontal" Spacing="10" Margin="14,0">
+          <Image Source="avares://Trackify/Assets/trackify.png" Width="20" Height="20" />
+          <TextBlock Text="TRACKIFY" FontFamily="{DynamicResource PixelFont}" FontSize="15" VerticalAlignment="Center" />
+        </StackPanel>
+        <StackPanel Grid.Column="2" Orientation="Horizontal">
+          <Button Classes="win" Click="OnMinimize"><Path Data="M0,5 L10,5" Stroke="White" StrokeThickness="1" /></Button>
+          <Button Classes="win" Click="OnMaximize"><Path Data="M0,0 L10,0 L10,10 L0,10 Z" Stroke="White" StrokeThickness="1" /></Button>
+          <Button Classes="win close" Click="OnClose"><Path Data="M0,0 L10,10 M10,0 L0,10" Stroke="White" StrokeThickness="1" /></Button>
+        </StackPanel>
+      </Grid>
+      <Grid Grid.Row="1" ColumnDefinitions="84,*,340">
+        <Border Background="#B30F0F11" BorderBrush="#222228" BorderThickness="0,0,1,0">
+          <DockPanel Margin="0,8">
+            <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Center">
+              <RadioButton Classes="nav" GroupName="nav" Tag="Home" IsChecked="True" Click="OnNav" ToolTip.Tip="Home"><Image Source="avares://Trackify/Assets/Icons/house.png" Width="26" Height="26" /></RadioButton>
+              <RadioButton Classes="nav" GroupName="nav" Tag="Search" Click="OnNav" ToolTip.Tip="Search"><Image Source="avares://Trackify/Assets/Icons/magnifying_glass.png" Width="26" Height="26" /></RadioButton>
+              <RadioButton Classes="nav" GroupName="nav" Tag="Playlists" Click="OnNav" ToolTip.Tip="Playlists"><Image Source="avares://Trackify/Assets/Icons/headphones.png" Width="26" Height="26" /></RadioButton>
+              <RadioButton Classes="nav" GroupName="nav" Tag="Forum" Click="OnNav" ToolTip.Tip="Forum"><Image Source="avares://Trackify/Assets/Icons/forum.png" Width="26" Height="26" /></RadioButton>
+              <RadioButton Classes="nav" GroupName="nav" Tag="Chats" Click="OnNav" ToolTip.Tip="Chats"><Image Source="avares://Trackify/Assets/Icons/bubblechat.png" Width="26" Height="26" /></RadioButton>
+              <RadioButton Classes="nav" GroupName="nav" Tag="Catalog" Click="OnNav" ToolTip.Tip="Catalog"><Image Source="avares://Trackify/Assets/Icons/catalog.png" Width="26" Height="26" /></RadioButton>
+              <RadioButton Classes="nav" GroupName="nav" Tag="Plans" Click="OnNav" ToolTip.Tip="Plans"><Image Source="avares://Trackify/Assets/Icons/plans.png" Width="26" Height="26" /></RadioButton>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+              <RadioButton Classes="nav" GroupName="nav" Tag="Games" Click="OnNav" ToolTip.Tip="Games"><Image Source="avares://Trackify/Assets/Icons/games.png" Width="32" Height="22" /></RadioButton>
+              <RadioButton Classes="nav" GroupName="nav" Tag="Profile" Click="OnNav" ToolTip.Tip="Profile"><Image Source="avares://Trackify/Assets/Icons/profile.png" Width="26" Height="26" /></RadioButton>
+              <RadioButton Classes="nav" GroupName="nav" Tag="Settings" Click="OnNav" ToolTip.Tip="Settings"><TextBlock Text="S" /></RadioButton>
+            </StackPanel>
+          </DockPanel>
+        </Border>
+        <TransitioningContentControl Name="Host" Grid.Column="1">
+          <TransitioningContentControl.PageTransition>
+            <CrossFade Duration="0:0:0.25" />
+          </TransitioningContentControl.PageTransition>
+        </TransitioningContentControl>
+        <c:PlayerPanel Name="Player" Grid.Column="2" />
+      </Grid>
+    </Grid>
+  </Grid>
+</Window>

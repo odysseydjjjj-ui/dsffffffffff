@@ -1,0 +1,27 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:c="using:Trackify.Controls" x:Class="Trackify.Views.SearchPage" Classes="page">
+  <ScrollViewer Padding="28,22,18,20">
+    <StackPanel Spacing="18">
+      <TextBox Name="Query" Watermark="Search TrackCloud uploads" Height="46" CornerRadius="12" FontSize="15" VerticalContentAlignment="Center">
+        <TextBox.InnerLeftContent>
+          <Image Source="avares://Trackify/Assets/Icons/magnifying_glass.png" Width="20" Height="20" Margin="12,0,0,0" Opacity="0.7" />
+        </TextBox.InnerLeftContent>
+      </TextBox>
+      <StackPanel Orientation="Horizontal">
+        <ToggleButton Name="AllBtn" Classes="chip" IsChecked="True" Content="TrackCloud" Click="OnFilter" />
+        <ToggleButton Name="UploadsBtn" Classes="chip" Content="My uploads" Click="OnFilter" />
+        <ToggleButton Name="OfflineBtn" Classes="chip" Content="Offline" Click="OnFilter" />
+      </StackPanel>
+      <TextBlock Classes="h1" Text="Results" />
+      <TextBlock Name="Empty" Classes="muted" FontSize="14" Text="Type something to search TrackCloud" HorizontalAlignment="Center" Margin="0,18" />
+      <ItemsControl Name="Results">
+        <ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate><DataTemplate><c:TrackCard /></DataTemplate></ItemsControl.ItemTemplate>
+      </ItemsControl>
+      <TextBlock Classes="h1" Text="Most Searched" />
+      <ItemsControl Name="Most">
+        <ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate><DataTemplate><c:TrackCard /></DataTemplate></ItemsControl.ItemTemplate>
+      </ItemsControl>
+    </StackPanel>
+  </ScrollViewer>
+</UserControl>

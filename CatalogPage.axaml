@@ -1,0 +1,16 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:c="using:Trackify.Controls" x:Class="Trackify.Views.CatalogPage" Classes="page">
+  <ScrollViewer Padding="28,22,18,20">
+    <StackPanel Spacing="16">
+      <TextBlock Classes="h1" Text="Catalog" />
+      <TextBlock Classes="muted" FontSize="13" Text="Gifts are silent MP4 loops. Only @ryan, @devv, @beef and @trackify can add new ones." />
+      <StackPanel Orientation="Horizontal">
+        <ToggleButton Name="AllBtn" Classes="chip" IsChecked="True" Content="All" Click="OnFilter" />
+        <ToggleButton Name="UniqueBtn" Classes="chip" Content="Unique" Click="OnFilter" />
+      </StackPanel>
+      <ItemsControl Name="Items">
+        <ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate><DataTemplate><c:GiftCard /></DataTemplate></ItemsControl.ItemTemplate>
+      </ItemsControl>
+    </StackPanel>
+  </ScrollViewer>
+</UserControl>

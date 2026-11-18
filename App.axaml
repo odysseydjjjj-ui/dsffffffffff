@@ -1,0 +1,31 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Trackify.App"
+             RequestedThemeVariant="Dark">
+  <Application.Resources>
+    <FontFamily x:Key="PixelFont">avares://Trackify/Assets/Fonts#Pixelify Sans,Inter</FontFamily>
+    <FontFamily x:Key="BodyFont">Inter,Segoe UI</FontFamily>
+    <SolidColorBrush x:Key="Bg">#0E0E10</SolidColorBrush>
+    <SolidColorBrush x:Key="Surface">#17171A</SolidColorBrush>
+    <SolidColorBrush x:Key="Surface2">#1F1F24</SolidColorBrush>
+    <SolidColorBrush x:Key="Stroke">#2A2A30</SolidColorBrush>
+    <SolidColorBrush x:Key="Muted">#8A8A94</SolidColorBrush>
+    <SolidColorBrush x:Key="Accent">#8B5CF6</SolidColorBrush>
+  </Application.Resources>
+  <Application.Styles>
+    <FluentTheme />
+    <StyleInclude Source="avares://Trackify/Styles/Theme.axaml" />
+  </Application.Styles>
+  <TrayIcon.Icons>
+    <TrayIcons>
+      <TrayIcon Icon="/Assets/trackify.ico" ToolTipText="Trackify" Clicked="OnTrayClicked">
+        <TrayIcon.Menu>
+          <NativeMenu>
+            <NativeMenuItem Header="Open Trackify" Click="OnOpen" />
+            <NativeMenuItem Header="Quit" Click="OnQuit" />
+          </NativeMenu>
+        </TrayIcon.Menu>
+      </TrayIcon>
+    </TrayIcons>
+  </TrayIcon.Icons>
+</Application>
